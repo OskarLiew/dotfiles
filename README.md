@@ -1,6 +1,6 @@
 # Dotfiles
 
-Storage of configuration files with a bare git repository.
+Storage of configuration files with a bare git repository. Uses an alias for git `config` that you should use instead of using git directly.
 
 ## Install dotfiles
 
@@ -15,3 +15,13 @@ Clone the repository
 ```shell
 git clone --bare https://github.com/OskarLiew/dotfiles $HOME/.dotfiles/
 ```
+
+Optionally backup files
+
+```shell
+mkdir -p .config-backup && \
+config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .config-backup/{}
+```
+
+## 
