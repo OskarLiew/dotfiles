@@ -13,5 +13,5 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 Clone the repository
 
 ```shell
-git clone --bare <git-repo-url> $HOME/.dotfiles/
+git clone --bare https://github.com/OskarLiew/dotfiles $HOME/.dotfiles/
 ```
