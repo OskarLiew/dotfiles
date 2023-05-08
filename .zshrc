@@ -2,8 +2,8 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-# This will set the default prompt to the walters theme
-prompt walters
+# This will set the default prompt to the pure theme
+prompt pure
 
 zstyle ':completion:*' menu select
 
@@ -52,8 +52,17 @@ fi
 key[Control-Left]="${terminfo[kLFT5]}"
 key[Control-Right]="${terminfo[kRIT5]}"
 
+
 [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
+# Find character with `showkey -a`
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
+
 # dotfiles config
-alias config='/usr/bin/git --git-dir=/home/oskar/.dotfiles/ --work-tree=/home/oskar'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

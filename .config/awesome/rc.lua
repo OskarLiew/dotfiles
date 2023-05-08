@@ -197,8 +197,8 @@ awful.screen.connect_for_each_screen(function(s)
 	local names = { "home", "www", "dev", "notes", "5", "6", "7", "8", "9" }
 	local l = awful.layout.suit -- Just to save some typing: use an alias.
 	local layouts = {
-		l.tile,
-		l.tile.max,
+		l.fair,
+		l.fair,
 		l.tile.spiral,
 		l.max,
 		l.tile,
@@ -585,7 +585,7 @@ client.connect_signal("manage", function(c)
 
 	-- Round the corners on clients
 	c.shape = function(cr, w, h)
-		gears.shape.rounded_rect(cr, w, h, 15)
+		gears.shape.rounded_rect(cr, w, h, 25)
 	end
 end)
 
