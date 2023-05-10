@@ -148,7 +148,7 @@ scrollbar {
 element {
     enabled:                     true;
     spacing:                     24px;
-    margin:                      0px;
+    margin:                      3px;
     padding:                     24px;
     border:                      0px solid;
     border-radius:               12px;
@@ -197,7 +197,7 @@ element alternate.urgent {
     background-color:            transparent;
     text-color:                  @urgent-colour;
     border:                      3px;
-    border-color:                @urgent-colour;
+    border-color:                @highlight-colour;
 }
 element alternate.active {
     background-color:            transparent;
