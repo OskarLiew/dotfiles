@@ -369,12 +369,12 @@ globalkeys = gears.table.join(
 	end, { description = "lua execute prompt", group = "awesome" }),
 	-- App launcher
 	awful.key({ modkey, "Shift" }, "p", function()
-		awful.util.spawn("/home/oskar/.config/rofi/launchers/applauncher/launcher.sh")
+		awful.util.spawn("/home/oskar/.config/rofi/launchers/applauncher/applauncher.sh")
 	end, { description = "App launcher", group = "launcher" }),
 	-- Window launcher
-	-- awful.key({ modkey }, "p", function()
-	-- 	awful.util.spawn()
-	-- end, { description = "Window selector", group = "launcher" }),
+	awful.key({ modkey }, "p", function()
+		awful.util.spawn("/home/oskar/.config/rofi/launchers/applauncher/windowlauncher.sh")
+	end, { description = "Window selector", group = "launcher" }),
 
 	-- Firefox
 	awful.key({ modkey }, "e", function()
