@@ -367,10 +367,14 @@ globalkeys = gears.table.join(
 			history_path = awful.util.get_cache_dir() .. "/history_eval",
 		})
 	end, { description = "lua execute prompt", group = "awesome" }),
-	-- Menubar
-	awful.key({ modkey }, "p", function()
-		menubar.show()
-	end, { description = "show the menubar", group = "launcher" }),
+	-- App launcher
+	awful.key({ modkey, "Shift" }, "p", function()
+		awful.util.spawn("/home/oskar/.config/rofi/launchers/applauncher/launcher.sh")
+	end, { description = "App launcher", group = "launcher" }),
+	-- Window launcher
+	-- awful.key({ modkey }, "p", function()
+	-- 	awful.util.spawn()
+	-- end, { description = "Window selector", group = "launcher" }),
 
 	-- Firefox
 	awful.key({ modkey }, "e", function()

@@ -60,9 +60,23 @@ key[Control-Right]="${terminfo[kRIT5]}"
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # dotfiles config
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # fzf
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+# Colour output
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+export LESS='-R --use-color -Dd+r$Du+b$'
+alias ls='ls --color=auto'
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
