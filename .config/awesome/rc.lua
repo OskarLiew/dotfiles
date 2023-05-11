@@ -112,7 +112,8 @@ mymainmenu = awful.menu({
 	items = {
 		{ "awesome",  myawesomemenu, beautiful.awesome_icon },
 		{ "Terminal", terminal },
-		{ "Firefox",  "firefox" }
+		{ "Firefox",  "firefox" },
+		{ "Power",  ".config/rofi/config/powermenu.sh" },
 	},
 })
 
