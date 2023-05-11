@@ -1,6 +1,8 @@
-autoload -Uz compinit promptinit
+autoload -Uz compinit promptinit select-word-style
+
 compinit
 promptinit
+select-word-style bash
 
 # This will set the default prompt to the pure theme
 prompt pure
@@ -80,3 +82,7 @@ alias ip='ip -color=auto'
 export LESS='-R --use-color -Dd+r$Du+b$'
 alias ls='ls --color=auto'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+# Syntax highlighting and autosuggestions
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
