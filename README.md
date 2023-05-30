@@ -10,7 +10,7 @@ Set up the alias by adding the following command to the end of your `.bashrc` or
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
 
-Clone the repository
+Clone the repositoryy
 
 ```shell
 git clone --bare https://github.com/OskarLiew/dotfiles $HOME/.dotfiles/
