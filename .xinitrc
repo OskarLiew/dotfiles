@@ -1,5 +1,5 @@
 # Load Xresources
-[[ -f $XDG_CONFIG_HOME/X11/xresources ]] && xrdb -merge $XDG_CONFIG_HOME/X11/xresources
+[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
 
 # Set keyboard layout
 setxkbmap -layout se,us -option grp:alt_shift_toggle

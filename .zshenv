@@ -31,6 +31,3 @@ export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
-
-# X11
-export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
