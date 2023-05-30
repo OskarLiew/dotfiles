@@ -6,7 +6,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Set default editors
 export EDITOR="nano"
-export VISUAL="code"
+export VISUAL="nano"
 
 # Set ZSH environment variables
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath

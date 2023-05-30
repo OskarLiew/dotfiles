@@ -1,13 +1,16 @@
 ### Comlpetion
+
 autoload -Uz compinit promptinit select-word-style
 
 _comp_options+=(globdots) # With hidden files
 compinit
 promptinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 select-word-style bash
 
 ### Theme
+
 fpath+=($ZDOTDIR/prompts/pure)
 prompt pure
 
@@ -68,6 +71,7 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
 ### History
+
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
@@ -76,14 +80,18 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+
 ### Directory stack
+
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 
 ### Aliases
+
 source $XDG_CONFIG_HOME/aliases
+
 
 ### Plugins
 
@@ -101,4 +109,3 @@ source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bd
 source $ZDOTDIR/plugins/bd.zsh
-
