@@ -8,6 +8,7 @@ zstyle ':completion:*' menu select
 select-word-style bash
 
 ### Theme
+fpath+=($ZDOTDIR/prompts/pure)
 prompt pure
 
 
