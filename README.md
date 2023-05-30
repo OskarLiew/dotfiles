@@ -13,7 +13,12 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 Clone the repository
 
 ```shell
-git clone --bare git@github.com:OskarLiew/dotfiles.git $HOME/.dotfiles/
+git clone -b ubuntu --recurse-submodules --bare git@github.com:OskarLiew/dotfiles.git $HOME/.dotfiles/
+```
+
+To update the submodules
+```shell
+config pull --recurse-submodules
 ```
 
 Optionally backup files
