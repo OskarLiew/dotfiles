@@ -31,3 +31,6 @@ export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+
+# Ranger
+export RANGER_LOAD_DEFAULT_RC=false
