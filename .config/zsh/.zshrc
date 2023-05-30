@@ -1,13 +1,17 @@
+### Comlpetion
 autoload -Uz compinit promptinit select-word-style
 
+_comp_options+=(globdots) # With hidden files
 compinit
 promptinit
+zstyle ':completion:*' menu select
 select-word-style bash
 
-# This will set the default prompt to the pure theme
+### Theme
 prompt pure
 
-zstyle ':completion:*' menu select
+
+### Key bindings
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -62,27 +66,38 @@ key[Control-Right]="${terminfo[kRIT5]}"
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+### History
 setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-# dotfiles config
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+### Directory stack
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+
+### Aliases
+source $XDG_CONFIG_HOME/aliases
+
+### Plugins
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-# Colour output
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip -color=auto'
-export LESS='-R --use-color -Dd+r$Du+b$'
-alias ls='ls --color=auto'
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+if ! [ -f "/usr/share/doc/fzf/examples/completion.zsh" ]; then
+	sudo apt install fzf
+fi
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # Syntax highlighting and autosuggestions
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# bd
+source $ZDOTDIR/plugins/bd.zsh
+

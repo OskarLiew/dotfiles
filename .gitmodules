@@ -1,0 +1,12 @@
+[submodule ".config/zsh/plugins/zsh-syntal-highlighting"]
+	path = .config/zsh/plugins/zsh-syntal-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".config/zsh/plugins/zsh-autosuggestions"]
+	path = .config/zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule ".config/zsh/plugins/zsh-syntax-highlighting"]
+	path = .config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".config/fzf"]
+	path = .config/fzf
+	url = https://github.com/junegunn/fzf.git
