@@ -4,11 +4,15 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Git
 alias gco='git checkout'
 alias gc='git commit' 
+alias gs='git status'
+alias gpl='git pull'
+alias gps='git push'
 
 # ls
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+
 
 # Colour output
 alias bat='batcat'

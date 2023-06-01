@@ -14,8 +14,9 @@ select-word-style bash
 fpath+=($ZDOTDIR/prompts/pure)
 prompt pure
 
-
 ### Key bindings
+
+bindkey -e
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo

@@ -5,8 +5,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Set default editors
-export EDITOR="nano"
-export VISUAL="nano"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Set ZSH environment variables
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
@@ -18,7 +18,10 @@ export HISTDUP="erase"
 # Color output
 # export LESS='-R --use-color -Dd+r$Du+b$'
 export BAT_THEME="TwoDark"
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+
+# man
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
