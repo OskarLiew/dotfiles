@@ -8,12 +8,22 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Set PATH
+# Include user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# Include user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Set ZSH environment variables
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 export HISTDUP="erase"
-
 
 # Color output
 # export LESS='-R --use-color -Dd+r$Du+b$'
@@ -32,3 +42,4 @@ export FZF_CTRL_T_OPTS="--preview 'batcat -n --color=always {}'"
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+
