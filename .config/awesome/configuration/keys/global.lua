@@ -185,10 +185,10 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
 	awful.key({ modkey }, "F11", function()
 		awful.util.spawn("xbacklight -dec 10 -perceived")
-	end),
+	end, { description = "Inrease brightness", group = "backlight" }),
 	awful.key({ modkey }, "F12", function()
 		awful.util.spawn("xbacklight -inc 10 -perceived")
-	end),
+	end, { description = "Decrease brightness", group = "backlight" }),
 })
 
 -- App keybinds
