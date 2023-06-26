@@ -46,3 +46,11 @@ awful.mouse.append_global_mousebindings({
 	awful.button({}, 5, awful.tag.viewnext),
 })
 -- }}}
+
+--- Key bindings
+local modkey = require("configuration.keys.mod").mod_key
+awful.keyboard.append_global_keybindings({
+	awful.key({ modkey }, "w", function()
+		mymainmenu:show()
+	end, { description = "show main menu", group = "awesome" }),
+})
