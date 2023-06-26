@@ -78,7 +78,7 @@ end)
 -- Create tags for each screen
 screen.connect_signal("request::desktop_decoration", function(s)
 	for i, tag in pairs(tags) do
-		awful.tag.add(tag.type, {
+		awful.tag.add(nil, {
 			icon = tag.icon,
 			icon_only = false,
 			layout = tag.layout or awful.layout.suit.spiral.dwindle,

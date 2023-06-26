@@ -2,14 +2,11 @@ local gears = require("gears")
 local awful = require("awful")
 local ruled = require("ruled")
 
+local top_panel = require("layout.top-panel")
+
 require("layout.titlebar")
 
--- Rounded corners
-client.connect_signal("request::manage", function(c)
-	c.shape = function(cr, w, h)
-		gears.shape.rounded_rect(cr, w, h, 10)
-	end
-end)
+screen.connect_signal("request::desktop_decoration", top_panel)
 
 -- {{{ Rules
 -- Rules to apply to new clients.
