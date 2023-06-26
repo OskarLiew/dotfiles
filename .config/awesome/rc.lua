@@ -41,7 +41,7 @@ local config_dir = gears.filesystem.get_configuration_dir()
 -- ░░█░░█▀█░█▀▀░█░█░█▀▀
 -- ░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀
 
-beautiful.init(config_dir .. "/theme/theme.lua")
+beautiful.init(require("theme"))
 
 -- ░█░░░█▀█░█░█░█▀█░█░█░▀█▀
 -- ░█░░░█▀█░░█░░█░█░█░█░░█░
@@ -54,6 +54,30 @@ require("layout")
 -- ░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
 local configuration = require("configuration")
 require("configuration.tags")
+
+-- ░█░█░█▀█░█░░░█░░░█▀█░█▀█░█▀█░█▀▀░█▀▄
+-- ░█▄█░█▀█░█░░░█░░░█▀▀░█▀█░█▀▀░█▀▀░█▀▄
+-- ░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░░░▀░▀░▀░░░▀▀▀░▀░▀
+
+-- {{{ Wallpaper
+screen.connect_signal("request::wallpaper", function(s)
+	awful.wallpaper({
+		screen = s,
+		widget = {
+			{
+				image = beautiful.wallpaper,
+				upscale = true,
+				downscale = true,
+				widget = wibox.widget.imagebox,
+			},
+			valign = "center",
+			halign = "center",
+			tiled = false,
+			widget = wibox.container.tile,
+		},
+	})
+end)
+-- }}}
 
 --- Random stuff below!
 
