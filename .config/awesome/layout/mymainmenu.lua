@@ -2,17 +2,19 @@ local menubar = require("menubar")
 local beautiful = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local awful = require("awful")
+local apps = require("configuration.apps")
+
+local editor_cmd = apps.default.terminal .. " -e " .. apps.default.editor
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+local myawesomemenu = {
 	{
 		"hotkeys",
 		function()
 			hotkeys_popup.show_help(nil, awful.screen.focused())
 		end,
 	},
-	{ "manual", terminal .. " -e man awesome" },
 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
 	{ "restart", awesome.restart },
 	{
@@ -23,18 +25,16 @@ myawesomemenu = {
 	},
 }
 
-mymainmenu = awful.menu({
+local mymainmenu = awful.menu({
 	items = {
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
-		{ "open terminal", terminal },
+		{ "open terminal", apps.default.terminal },
 		{ "Power", ".config/rofi/config/powermenu.sh" },
 	},
 })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
-
 -- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+menubar.utils.terminal = apps.default.terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Mouse bindings

@@ -10,9 +10,6 @@ local mytextclock = wibox.widget.textclock()
 local battery = require("widget.battery")()
 
 local top_panel = function(s)
-	-- Create a promptbox for each screen
-	s.mypromptbox = awful.widget.prompt()
-
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
 	-- We need one layoutbox per screen.
 	s.mylayoutbox = awful.widget.layoutbox({
@@ -89,9 +86,7 @@ local top_panel = function(s)
 			layout = wibox.layout.align.horizontal,
 			{ -- Left widgets
 				layout = wibox.layout.fixed.horizontal,
-				mylauncher,
 				s.mytaglist,
-				s.mypromptbox,
 			},
 			s.mytasklist, -- Middle widget
 			{ -- Right widgets

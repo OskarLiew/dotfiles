@@ -2,9 +2,10 @@ local gears = require("gears")
 local awful = require("awful")
 local ruled = require("ruled")
 
-local top_panel = require("layout.top-panel")
-
 require("layout.titlebar")
+require("layout.mymainmenu")
+
+local top_panel = require("layout.top-panel")
 
 screen.connect_signal("request::desktop_decoration", top_panel)
 
