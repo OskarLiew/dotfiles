@@ -16,6 +16,9 @@ local theme = {}
 
 theme.font = "sans 10"
 
+theme.bg_opacity = "CC"
+theme.fg_opacity = "CC"
+
 theme.bg_normal = "#222222"
 theme.bg_focus = "#535d6c"
 theme.bg_urgent = "#ff0000"

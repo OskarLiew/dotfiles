@@ -2,15 +2,21 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local wibox = require("wibox")
+local gears = require("gears")
 local task_list = require("widget.task-list")
 
 local top_panel = function(s)
 	-- Playground
 	local offsetx = dpi(45)
-	local panel_height = dpi(22)
+	local panel_height = dpi(24)
+
+	local panel_shape = function(cr, width, height)
+		gears.shape.rounded_rect(cr, width, height, panel_height / 2)
+	end
 
 	-- Create panel
 	local panel = wibox({
+		visible = true,
 		ontop = true,
 		screen = s,
 		type = "dock",
@@ -18,41 +24,14 @@ local top_panel = function(s)
 		width = s.geometry.width - 2 * offsetx,
 		x = s.geometry.x + offsetx,
 		y = s.geometry.y + 0.2 * panel_height,
+		shape = panel_shape,
 		stretch = false,
-		bg = beautiful.background,
+		bg = beautiful.bg_normal .. beautiful.bg_opacity,
 		fg = beautiful.fg_normal,
 	})
 
 	panel:struts({
 		top = panel_height,
-	})
-
-	-- Create a taglist widget
-	s.mytaglist = awful.widget.taglist({
-		screen = s,
-		filter = awful.widget.taglist.filter.all,
-		buttons = {
-			awful.button({}, 1, function(t)
-				t:view_only()
-			end),
-			awful.button({ modkey }, 1, function(t)
-				if client.focus then
-					client.focus:move_to_tag(t)
-				end
-			end),
-			awful.button({}, 3, awful.tag.viewtoggle),
-			awful.button({ modkey }, 3, function(t)
-				if client.focus then
-					client.focus:toggle_tag(t)
-				end
-			end),
-			awful.button({}, 4, function(t)
-				awful.tag.viewprev(t.screen)
-			end),
-			awful.button({}, 5, function(t)
-				awful.tag.viewnext(t.screen)
-			end),
-		},
 	})
 
 	-- Initialize widgets
@@ -63,34 +42,38 @@ local top_panel = function(s)
 	s.layoutbox = require("widget.layoutbox")(s)
 
 	s.systray = wibox.widget({
-		visible = false,
+		visible = true,
 		base_size = dpi(20),
 		horizontal = true,
 		screen = "primary",
 		widget = wibox.widget.systray,
 	})
-
+	local left = {
+		layout = wibox.layout.fixed.horizontal,
+		task_list(s),
+	}
+	local center = textclock
+	local right = {
+		layout = wibox.layout.fixed.horizontal,
+		{
+			s.systray,
+			margins = dpi(5),
+			widget = wibox.container.margin,
+		},
+		s.battery,
+		s.keyboardlayout,
+		s.layoutbox,
+	}
 	panel:setup({
-		layout = wibox.layout.align.horizontal,
-		expand = "none",
 		{
-			layout = wibox.layout.fixed.horizontal,
-			task_list(s),
+			layout = wibox.layout.align.horizontal,
+			expand = "none",
+			left,
+			center,
+			right,
 		},
-		textclock,
-		{
-			layout = wibox.layout.fixed.horizontal,
-			spacing = dpi(5),
-			{
-				s.systray,
-				margins = dpi(5),
-				widget = wibox.container.margin,
-			},
-			s.battery,
-			s.keyboardlayout,
-			s.layoutbox,
-		},
-		textclock,
+		right = dpi(4),
+		widget = wibox.container.margin,
 	})
 	return panel
 end
