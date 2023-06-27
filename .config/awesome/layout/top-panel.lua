@@ -1,33 +1,30 @@
-local wibox = require("wibox")
 local awful = require("awful")
-
--- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
-
-local battery = require("widget.battery")()
+local beautiful = require("beautiful")
+local dpi = beautiful.xresources.apply_dpi
+local wibox = require("wibox")
+local task_list = require("widget.task-list")
 
 local top_panel = function(s)
-	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
-	-- We need one layoutbox per screen.
-	s.mylayoutbox = awful.widget.layoutbox({
+	-- Playground
+	local offsetx = dpi(45)
+	local panel_height = dpi(22)
+
+	-- Create panel
+	local panel = wibox({
+		ontop = true,
 		screen = s,
-		buttons = {
-			awful.button({}, 1, function()
-				awful.layout.inc(1)
-			end),
-			awful.button({}, 3, function()
-				awful.layout.inc(-1)
-			end),
-			awful.button({}, 4, function()
-				awful.layout.inc(-1)
-			end),
-			awful.button({}, 5, function()
-				awful.layout.inc(1)
-			end),
-		},
+		type = "dock",
+		height = panel_height,
+		width = s.geometry.width - 2 * offsetx,
+		x = s.geometry.x + offsetx,
+		y = s.geometry.y + 0.2 * panel_height,
+		stretch = false,
+		bg = beautiful.background,
+		fg = beautiful.fg_normal,
+	})
+
+	panel:struts({
+		top = panel_height,
 	})
 
 	-- Create a taglist widget
@@ -58,47 +55,44 @@ local top_panel = function(s)
 		},
 	})
 
-	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist({
-		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
-		buttons = {
-			awful.button({}, 1, function(c)
-				c:activate({ context = "tasklist", action = "toggle_minimization" })
-			end),
-			awful.button({}, 3, function()
-				awful.menu.client_list({ theme = { width = 250 } })
-			end),
-			awful.button({}, 4, function()
-				awful.client.focus.byidx(-1)
-			end),
-			awful.button({}, 5, function()
-				awful.client.focus.byidx(1)
-			end),
-		},
+	-- Initialize widgets
+	s.battery = require("widget.battery")()
+	s.keyboardlayout = awful.widget.keyboardlayout()
+	local textclock = wibox.widget.textclock()
+	-- we need one layoutbox per screen.
+	s.layoutbox = require("widget.layoutbox")(s)
+
+	s.systray = wibox.widget({
+		visible = false,
+		base_size = dpi(20),
+		horizontal = true,
+		screen = "primary",
+		widget = wibox.widget.systray,
 	})
 
-	-- Create the wibox
-	s.mywibox = awful.wibar({
-		position = "top",
-		screen = s,
-		widget = {
-			layout = wibox.layout.align.horizontal,
-			{ -- Left widgets
-				layout = wibox.layout.fixed.horizontal,
-				s.mytaglist,
-			},
-			s.mytasklist, -- Middle widget
-			{ -- Right widgets
-				layout = wibox.layout.fixed.horizontal,
-				wibox.widget.systray(),
-				battery,
-				mykeyboardlayout,
-				mytextclock,
-				s.mylayoutbox,
-			},
+	panel:setup({
+		layout = wibox.layout.align.horizontal,
+		expand = "none",
+		{
+			layout = wibox.layout.fixed.horizontal,
+			task_list(s),
 		},
+		textclock,
+		{
+			layout = wibox.layout.fixed.horizontal,
+			spacing = dpi(5),
+			{
+				s.systray,
+				margins = dpi(5),
+				widget = wibox.container.margin,
+			},
+			s.battery,
+			s.keyboardlayout,
+			s.layoutbox,
+		},
+		textclock,
 	})
+	return panel
 end
 
 return top_panel
