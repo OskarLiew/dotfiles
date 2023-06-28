@@ -3,7 +3,6 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local wibox = require("wibox")
 local gears = require("gears")
-local task_list = require("widget.task-list")
 
 local top_panel = function(s)
 	-- Playground
@@ -35,11 +34,11 @@ local top_panel = function(s)
 	})
 
 	-- Initialize widgets
-	s.battery = require("widget.battery")()
-	s.keyboardlayout = awful.widget.keyboardlayout()
 	local textclock = wibox.widget.textclock()
-	-- we need one layoutbox per screen.
+	local battery = require("widget.battery")()
+	local keyboardlayout = awful.widget.keyboardlayout()
 	s.layoutbox = require("widget.layoutbox")(s)
+	s.task_list = require("widget.task-list")(s)
 
 	s.systray = wibox.widget({
 		visible = true,
@@ -50,7 +49,7 @@ local top_panel = function(s)
 	})
 	local left = {
 		layout = wibox.layout.fixed.horizontal,
-		task_list(s),
+		s.task_list,
 	}
 	local center = textclock
 	local right = {
@@ -60,8 +59,9 @@ local top_panel = function(s)
 			margins = dpi(5),
 			widget = wibox.container.margin,
 		},
-		s.battery,
-		s.keyboardlayout,
+		battery,
+		battery2,
+		keyboardlayout,
 		s.layoutbox,
 	}
 	panel:setup({

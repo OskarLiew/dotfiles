@@ -2,4 +2,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
   <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(93.333334%, 93.333334%, 93.333334%)" stroke-opacity="1" stroke-miterlimit="4" d="M 38 14 L 6 14 C 4.895508 14 4 14.895508 4 16 L 4 32 C 4 33.104492 4.895508 34 6 34 L 38 34 C 39.104492 34 40 33.104492 40 32 L 40 16 C 40 14.895508 39.104492 14 38 14 Z M 38 14 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
   <path fill-rule="nonzero" fill="rgb(93.333334%, 93.333334%, 93.333334%)" fill-opacity="1" d="M 168 80 L 176 80 C 180.417969 80 184 83.582031 184 88 L 184 104 C 184 108.417969 180.417969 112 176 112 L 168 112 Z M 168 80 "/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(93.333334%, 93.333334%, 93.333334%)" stroke-opacity="1" stroke-miterlimit="4" d="M 13 21 L 13 27 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
 </svg>

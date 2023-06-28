@@ -44,7 +44,7 @@ local return_button = function()
 	local battery_button = wibox.widget({
 		{
 			battery_widget,
-			margins = dpi(3),
+			margins = dpi(2),
 			widget = wibox.container.margin,
 		},
 		widget = clickable_container,
@@ -89,7 +89,7 @@ local return_button = function()
 			icon = widget_icon_dir .. "battery-alert.svg",
 			app_name = "System notification",
 			title = "Battery is dying!",
-			message = "Hey, I think we have a problem here. Save your work before reaching the oblivion.",
+			message = "Battery is about to run out. Plug in the machine, or at least save!",
 			urgency = "critical",
 		})
 	end
@@ -113,9 +113,9 @@ local return_button = function()
 
 				local icon_name = "battery"
 
-				-- Fully charged
-				if (status == "fully-charged" or status == "charging") and battery_percentage == 100 then
-					icon_name = icon_name .. "-" .. "fully-charged"
+				-- Charging or fully charged
+				if status == "charging" or (status == "fully-charged" and battery_percentage == 100) then
+					icon_name = icon_name .. "-charging"
 					battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
 					return
 				end
@@ -134,22 +134,24 @@ local return_button = function()
 				end
 
 				-- Discharging
-				if battery_percentage > 0 and battery_percentage < 20 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "10"
-				elseif battery_percentage >= 20 and battery_percentage < 30 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "20"
-				elseif battery_percentage >= 30 and battery_percentage < 50 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "30"
-				elseif battery_percentage >= 50 and battery_percentage < 60 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "50"
-				elseif battery_percentage >= 60 and battery_percentage < 80 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "60"
-				elseif battery_percentage >= 80 and battery_percentage < 90 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "80"
-				elseif battery_percentage >= 90 and battery_percentage < 100 then
-					icon_name = icon_name .. "-" .. status .. "-" .. "90"
+				icon_name = icon_name .. "-working-"
+				if battery_percentage > 0 and battery_percentage < 15 then
+					icon_name = icon_name .. "15"
+				elseif battery_percentage >= 15 and battery_percentage < 25 then
+					icon_name = icon_name .. "25"
+				elseif battery_percentage >= 40 and battery_percentage < 50 then
+					icon_name = icon_name .. "40"
+				elseif battery_percentage >= 50 and battery_percentage < 65 then
+					icon_name = icon_name .. "50"
+				elseif battery_percentage >= 65 and battery_percentage < 75 then
+					icon_name = icon_name .. "65"
+				elseif battery_percentage >= 75 and battery_percentage < 90 then
+					icon_name = icon_name .. "75"
+				elseif battery_percentage >= 90 and battery_percentage < 99 then
+					icon_name = icon_name .. "90"
+				elseif battery_percentage >= 99 and battery_percentage <= 100 then
+					icon_name = icon_name .. "100"
 				end
-
 				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
 			end
 		)
