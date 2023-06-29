@@ -135,21 +135,21 @@ local return_button = function()
 
 				-- Discharging
 				icon_name = icon_name .. "-working-"
-				if battery_percentage > 0 and battery_percentage < 15 then
+				if battery_percentage < 15 then
 					icon_name = icon_name .. "15"
-				elseif battery_percentage >= 15 and battery_percentage < 25 then
+				elseif battery_percentage < 25 then
 					icon_name = icon_name .. "25"
-				elseif battery_percentage >= 40 and battery_percentage < 50 then
+				elseif battery_percentage < 40 then
 					icon_name = icon_name .. "40"
-				elseif battery_percentage >= 50 and battery_percentage < 65 then
+				elseif battery_percentage < 50 then
 					icon_name = icon_name .. "50"
-				elseif battery_percentage >= 65 and battery_percentage < 75 then
+				elseif battery_percentage < 65 then
 					icon_name = icon_name .. "65"
-				elseif battery_percentage >= 75 and battery_percentage < 90 then
+				elseif battery_percentage < 75 then
 					icon_name = icon_name .. "75"
-				elseif battery_percentage >= 90 and battery_percentage < 99 then
+				elseif battery_percentage < 90 then
 					icon_name = icon_name .. "90"
-				elseif battery_percentage >= 99 and battery_percentage <= 100 then
+				else
 					icon_name = icon_name .. "100"
 				end
 				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
