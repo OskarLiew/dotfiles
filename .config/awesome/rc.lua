@@ -180,4 +180,6 @@ client.connect_signal("manage", function(c)
 end)
 
 -- Autostart applications
-awful.spawn.with_shell("picom")
+for _, command in ipairs(configuration.apps.run_on_start_up) do
+	awful.spawn.with_shell(command)
+end

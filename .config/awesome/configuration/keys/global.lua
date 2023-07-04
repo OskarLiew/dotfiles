@@ -174,7 +174,7 @@ awful.keyboard.append_global_keybindings({
 		awful.util.spawn("amixer -c 0 set Master 3dB-")
 	end),
 	awful.key({}, "XF86AudioMute", function()
-		awful.util.spawn("amixer -c 0 set Master toggle")
+		awful.util.spawn("pactl set-sink-mute 0 toggle")
 	end),
 })
 

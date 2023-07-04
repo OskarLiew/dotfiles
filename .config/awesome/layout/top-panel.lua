@@ -36,9 +36,11 @@ local top_panel = function(s)
 	-- Initialize widgets
 	local textclock = wibox.widget.textclock()
 	local battery = require("widget.battery")()
+	local volume = require("widget.volume")()
 	local keyboardlayout = awful.widget.keyboardlayout()
 	s.layoutbox = require("widget.layoutbox")(s)
 	s.task_list = require("widget.task-list")(s)
+	s.tag_list = require("widget.tag-list")(s)
 
 	s.systray = wibox.widget({
 		visible = true,
@@ -48,7 +50,13 @@ local top_panel = function(s)
 		widget = wibox.widget.systray,
 	})
 	local left = {
+		{
+			wibox.widget.spacing,
+			margins = dpi(2),
+			widget = wibox.container.margin,
+		},
 		layout = wibox.layout.fixed.horizontal,
+		s.tag_list,
 		s.task_list,
 	}
 	local center = textclock
@@ -59,10 +67,15 @@ local top_panel = function(s)
 			margins = dpi(5),
 			widget = wibox.container.margin,
 		},
+		volume,
 		battery,
-		battery2,
 		keyboardlayout,
 		s.layoutbox,
+		{
+			wibox.widget.spacing,
+			margins = dpi(2),
+			widget = wibox.container.margin,
+		},
 	}
 	panel:setup({
 		{

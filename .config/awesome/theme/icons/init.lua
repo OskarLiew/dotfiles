@@ -4,19 +4,20 @@ local dir = os.getenv("HOME") .. "/.config/awesome/theme/icons/"
 return {
 
 	-- Action Bar
-	web_browser = dir .. "tag-list/" .. "web-browser.svg",
-	text_editor = dir .. "tag-list/" .. "text-editor.svg",
-	social = dir .. "tag-list/" .. "social.svg",
-	file_manager = dir .. "tag-list/" .. "file-manager.svg",
-	multimedia = dir .. "tag-list/" .. "multimedia.svg",
-	games = dir .. "tag-list/" .. "games.svg",
-	development = dir .. "tag-list/" .. "development.svg",
-	sandbox = dir .. "tag-list/" .. "sandbox.svg",
-	terminal = dir .. "tag-list/" .. "terminal.svg",
-	graphics = dir .. "tag-list/" .. "graphics.svg",
-	menu = dir .. "tag-list/" .. "menu.svg",
-	close_small = dir .. "tag-list/" .. "close-small.svg",
-	notepad = dir .. "tag-list/" .. "notepad.svg",
+	terminal = dir .. "terminal.svg",
+	web_browser = dir .. "earth.svg",
+	text_editor = dir .. "code.svg",
+	notepad = dir .. "notebook.svg",
+	file_manager = dir .. "folder-open.svg",
+	multimedia = dir .. "playback-progress.svg",
+	sandbox = dir .. "cube-four.svg",
+	games = dir .. "game.svg",
+	social = dir .. "communication.svg",
+
+	development = dir .. "development.svg",
+	graphics = dir .. "graphics.svg",
+	menu = dir .. "menu.svg",
+	close_small = dir .. "close-small.svg",
 
 	-- Others/System UI
 	close = dir .. "close.svg",

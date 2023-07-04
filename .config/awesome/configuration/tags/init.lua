@@ -3,6 +3,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local icons = require("theme.icons")
 local apps = require("configuration.apps")
+local dpi = require("beautiful").xresources.apply_dpi
 
 local tags = {
 	{
@@ -26,7 +27,7 @@ local tags = {
 	{
 		type = "notes",
 		icon = icons.notepad,
-		default_app = apps.default.graphics,
+		default_app = apps.default.notes,
 		gap = beautiful.useless_gap,
 	},
 	{
@@ -37,7 +38,7 @@ local tags = {
 		layout = awful.layout.suit.tile,
 	},
 	{
-		type = "media",
+		type = "multimedia",
 		icon = icons.multimedia,
 		default_app = apps.default.multimedia,
 		gap = 0,
@@ -51,10 +52,8 @@ local tags = {
 		gap = beautiful.useless_gap,
 	},
 	{
-		type = "any",
-		icon = icons.development,
-		default_app = apps.default.development,
-		gap = beautiful.useless_gap,
+		type = "games",
+		icon = icons.games,
 		layout = awful.layout.suit.floating,
 	},
 	{
@@ -80,7 +79,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	for i, tag in pairs(tags) do
 		awful.tag.add(nil, {
 			icon = tag.icon,
-			icon_only = false,
+			icon_only = true,
 			layout = tag.layout or awful.layout.suit.spiral.dwindle,
 			gap_single_client = true,
 			gap = tag.gap,
