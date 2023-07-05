@@ -6,6 +6,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/volume/icons/"
 local apps = require("configuration.apps")
+local naughty = require("naughty")
 
 local function return_button()
 	local volume_imagebox = wibox.widget({
@@ -76,29 +77,28 @@ local function return_button()
 				volume_percentage_text.visible = true
 				volume_percentage_text:set_text(volume_percentage .. "%")
 
-				local icon_name = "volume"
-
-				-- Muted
-				if muted then
-					icon_name = icon_name .. "-mute"
-					volume_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
-					return
-				end
-
-				-- Volume
-				if volume_percentage < 50 then
-					icon_name = icon_name .. "-small"
-				else
-					icon_name = icon_name .. "-notice"
-				end
-				volume_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
-
 				-- Update tooltip text
 				local tooltip_text = volume_percentage .. "%"
 				if muted then
 					tooltip_text = "Muted (" .. tooltip_text .. ")"
 				end
 				volume_tooltip:set_text(tooltip_text)
+
+				-- Set icon
+				local icon_name = "volume"
+
+				if muted then
+					icon_name = icon_name .. "-mute"
+					volume_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
+					return
+				end
+
+				if volume_percentage < 50 then
+					icon_name = icon_name .. "-small"
+				else
+					icon_name = icon_name .. "-notice"
+				end
+				volume_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
 			end
 		)
 	end
