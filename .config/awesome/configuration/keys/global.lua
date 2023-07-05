@@ -159,21 +159,27 @@ awful.keyboard.append_global_keybindings({
 -- Audio keybindings
 awful.keyboard.append_global_keybindings({
 	awful.key({}, "XF86AudioPlay", function()
+		awesome.emit_signal("player_change")
 		awful.util.spawn("playerctl play-pause")
 	end),
 	awful.key({}, "XF86AudioNext", function()
+		awesome.emit_signal("player_change")
 		awful.util.spawn("playerctl next")
 	end),
 	awful.key({}, "XF86AudioPrev", function()
+		awesome.emit_signal("player_change")
 		awful.util.spawn("playerctl previous")
 	end),
 	awful.key({}, "XF86AudioRaiseVolume", function()
+		awesome.emit_signal("volume_change")
 		awful.util.spawn("amixer -c 0 set Master 3dB+")
 	end),
 	awful.key({}, "XF86AudioLowerVolume", function()
+		awesome.emit_signal("volume_change")
 		awful.util.spawn("amixer -c 0 set Master 3dB-")
 	end),
 	awful.key({}, "XF86AudioMute", function()
+		awesome.emit_signal("volume_change")
 		awful.util.spawn("pactl set-sink-mute 0 toggle")
 	end),
 })
@@ -181,9 +187,11 @@ awful.keyboard.append_global_keybindings({
 -- Backlight keybindings
 awful.keyboard.append_global_keybindings({
 	awful.key({ modkey }, "F11", function()
+		awesome.emit_signal("backlight_change")
 		awful.util.spawn("xbacklight -dec 10 -perceived")
 	end, { description = "Inrease brightness", group = "backlight" }),
 	awful.key({ modkey }, "F12", function()
+		awesome.emit_signal("backlight_change")
 		awful.util.spawn("xbacklight -inc 10 -perceived")
 	end, { description = "Decrease brightness", group = "backlight" }),
 })

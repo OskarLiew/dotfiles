@@ -1,7 +1,6 @@
 local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
-local watch = awful.widget.watch
 local clickable_container = require("widget.clickable-container")
 local dpi = require("beautiful").xresources.apply_dpi
 local config_dir = gears.filesystem.get_configuration_dir()
@@ -52,6 +51,16 @@ local function return_button()
 		awful.spawn(apps.default.volume_mixer, false)
 	end)))
 
+	local volume_tooltip = awful.tooltip({
+		objects = { volume_button },
+		text = "None",
+		mode = "outside",
+		align = "right",
+		margin_leftright = dpi(8),
+		margin_topbottom = dpi(8),
+		preferred_positions = { "right", "left", "top", "bottom" },
+	})
+
 	local function update_volume(muted)
 		awful.spawn.easy_async_with_shell(
 			[[awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | tr -d '\n%']],
@@ -83,17 +92,34 @@ local function return_button()
 					icon_name = icon_name .. "-notice"
 				end
 				volume_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. ".svg"))
+
+				-- Update tooltip text
+				local tooltip_text = volume_percentage .. "%"
+				if muted then
+					tooltip_text = "Muted (" .. tooltip_text .. ")"
+				end
+				volume_tooltip:set_text(tooltip_text)
 			end
 		)
 	end
 
-	local refresh_rate = 1 -- In seconds
-	watch([[sh -c "pacmd list-sinks | awk '/muted/ { print $2 }'"]], refresh_rate, function(widget, stdout)
-		local muted = stdout:gsub("%s+", "") == "yes"
+	local function set_volume()
+		awful.spawn.easy_async_with_shell(
+			-- Sleep to avoid race condition
+			[[sleep 0.01 && pacmd list-sinks | awk '/muted/ { print $2 }']],
+			function(stdout)
+				local muted = stdout:gsub("%s+", "") == "yes"
 
-		update_volume(muted)
-	end)
+				update_volume(muted)
+			end
+		)
+	end
 
+	-- Trigger events
+	awesome.connect_signal("volume_change", set_volume)
+	volume_widget:connect_signal("mouse::enter", set_volume)
+
+	set_volume()
 	return volume_button
 end
 
