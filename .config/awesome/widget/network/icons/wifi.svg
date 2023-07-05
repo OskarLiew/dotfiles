@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(93.333334%, 93.333334%, 93.333334%)" stroke-opacity="1" stroke-miterlimit="4" d="M 4 18.964844 C 4.588867 18.407227 5.195312 17.878906 5.817383 17.378906 C 17.037109 8.374023 33.381836 8.90332 44 18.964844 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(93.333334%, 93.333334%, 93.333334%)" stroke-opacity="1" stroke-miterlimit="4" d="M 38 25.798828 C 30.267578 18.067383 17.732422 18.067383 10 25.798828 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(93.333334%, 93.333334%, 93.333334%)" stroke-opacity="1" stroke-miterlimit="4" d="M 32 32.313477 C 27.582031 27.895508 20.417969 27.895508 16 32.313477 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill-rule="evenodd" fill="rgb(93.333334%, 93.333334%, 93.333334%)" fill-opacity="1" d="M 96 160 C 101.523438 160 106 155.523438 106 150 C 106 144.476562 101.523438 140 96 140 C 90.476562 140 86 144.476562 86 150 C 86 155.523438 90.476562 160 96 160 Z M 96 160 "/>
+</svg>

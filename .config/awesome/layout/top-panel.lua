@@ -38,6 +38,7 @@ local top_panel = function(s)
 	local battery = require("widget.battery")()
 	local volume = require("widget.volume")()
 	local keyboardlayout = awful.widget.keyboardlayout()
+	local network = require("widget.network")("wlan0")
 	s.layoutbox = require("widget.layoutbox")(s)
 	s.task_list = require("widget.task-list")(s)
 	s.tag_list = require("widget.tag-list")(s)
@@ -67,6 +68,7 @@ local top_panel = function(s)
 			margins = dpi(5),
 			widget = wibox.container.margin,
 		},
+		network,
 		volume,
 		battery,
 		keyboardlayout,

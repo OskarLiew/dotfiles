@@ -1,21 +1,19 @@
-local awful = require("awful")
 local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
-local naughty = require("naughty")
 local watch = awful.widget.watch
-local apps = require("configuration.apps")
 local clickable_container = require("widget.clickable-container")
 local dpi = require("beautiful").xresources.apply_dpi
 local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. "widget/volume/icons/"
+local apps = require("configuration.apps")
 
 local function return_button()
 	local volume_imagebox = wibox.widget({
 		nil,
 		{
 			id = "icon",
-			image = widget_icon_dir .. "volume1.svg",
+			image = widget_icon_dir .. "volume-mute.svg",
 			widget = wibox.widget.imagebox,
 			resize = true,
 		},
@@ -49,6 +47,11 @@ local function return_button()
 		},
 		widget = clickable_container,
 	})
+
+	volume_button:buttons(gears.table.join(awful.button({}, 1, nil, function()
+		awful.spawn(apps.default.volume_mixer, false)
+	end)))
+
 	local function update_volume(muted)
 		awful.spawn.easy_async_with_shell(
 			[[awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | tr -d '\n%']],

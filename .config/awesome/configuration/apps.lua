@@ -2,9 +2,11 @@ local filesystem = require("gears.filesystem")
 local config_dir = filesystem.get_configuration_dir()
 local rofi_dir = config_dir .. "/rofi"
 
+local terminal = "alacritty"
+
 local default_apps = {
 	-- Default terminal emulator
-	terminal = "alacritty",
+	terminal = terminal,
 	-- Default web browser
 	web_browser = "firefox",
 	-- Default text editor
@@ -19,6 +21,8 @@ local default_apps = {
 	rofi_appmenu = rofi_dir .. "/config/applauncher.sh",
 	rofi_windowmenu = rofi_dir .. "/config/windowselector.sh",
 	rofi_powermenu = rofi_dir .. "/config/powermenu.sh",
+	network_manager = terminal .. " -e iwctl",
+	volume_mixer = terminal .. " -e alsamixer",
 }
 
 return {
