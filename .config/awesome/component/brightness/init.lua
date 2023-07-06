@@ -1,12 +1,11 @@
 local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
+
 local slider = require("widget.slider")
+
 local config_dir = gears.filesystem.get_configuration_dir()
 local icon_dir = config_dir .. "component/brightness/icons/"
-local apps = require("configuration.apps")
-local beautiful = require("beautiful")
-local naughty = require("naughty")
 
 local brightness_imagebox = wibox.widget({
 	nil,
