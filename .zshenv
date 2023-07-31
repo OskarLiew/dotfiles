@@ -1,5 +1,6 @@
 # Set overall config path
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # Set ZSH config path
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
@@ -42,4 +43,10 @@ export FZF_CTRL_T_OPTS="--preview 'batcat -n --color=always {}'"
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+
+# PATH
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 

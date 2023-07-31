@@ -27,6 +27,10 @@ alias ls='ls --color=auto'
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
+# Lazygit and lazydocker
+alias lg='lazygit'
+alias ldk='lazydocker'
+
 # WSL-specific aliases
 if [[ -v WSL_DISTRO_NAME ]]; then
     alias exp="explorer.exe"
