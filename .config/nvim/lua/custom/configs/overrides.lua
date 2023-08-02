@@ -14,6 +14,9 @@ M.treesitter = {
         "markdown_inline",
         "rust",
         "python",
+        "toml",
+        "json",
+        "yaml",
     },
     indent = {
         enable = true,
@@ -43,6 +46,9 @@ M.mason = {
         -- Python stuff
         "pyright",
         "black",
+        "ruff",
+        "mypy",
+        "debugpy",
 
         -- Rust stuff
         "rust-analyzer",
@@ -62,7 +68,7 @@ M.nvimtree = {
                 git = true,
             },
         },
-        root_folder_label = true,
+        root_folder_label = false,
     },
     view = {
         hide_root_folder = nil,

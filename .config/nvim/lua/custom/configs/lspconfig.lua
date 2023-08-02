@@ -4,7 +4,7 @@ local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pyright" }
+local servers = { "html", "cssls", "tsserver", "clangd" }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
@@ -13,17 +13,8 @@ for _, lsp in ipairs(servers) do
     })
 end
 
--- -- Rust
--- lspconfig.rust_analyzer.setup({
---     on_attach = on_attach,
---     capabilities = capabilities,
---     filetypes = { "rust" },
---     root_dir = util.root_pattern("Cargo.toml"),
---     settigns = {
---         ["rust-analyzer"] = {
---             cargo = {
---                 allFeatures = true,
---             },
---         },
---     },
--- })
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "python" },
+})
