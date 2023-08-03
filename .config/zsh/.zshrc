@@ -13,6 +13,7 @@ select-word-style bash
 
 source $ZDOTDIR/prompts/pure/async.zsh
 source $ZDOTDIR/prompts/pure/pure.zsh
+RPROMPT="%F{yellow}%D{%H:%M:%S}"  # Clock on right side
 
 ### Key bindings
 
