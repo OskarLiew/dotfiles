@@ -14,7 +14,6 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 
-
 # Colour output
 alias bat='batcat'
 alias cat='bat --paging=never'
@@ -35,3 +34,14 @@ alias ldk='lazydocker'
 if [[ -v WSL_DISTRO_NAME ]]; then
     alias exp="explorer.exe"
 fi
+
+# Python stuff
+alias vact='source venv/bin/activate'
+
+# Lazygit and lazydocker
+alias lg='lazygit'
+alias ldk='lazydocker'
+
+# Work stuff
+alias rr='cd ~/visiba/RedRobinAI'
+
