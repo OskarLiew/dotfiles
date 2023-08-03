@@ -22,10 +22,18 @@ M.general = {
     },
 }
 
+M.telescope = {
+    n = {
+        ["<leader>gf"] = { "<cmd> Telescope git_files <CR>", "git files" },
+        ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+        ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "git status" },
+    },
+}
+
 M.dap = {
     plugin = true,
     n = {
-        ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+        ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "insert breakpoint" },
     },
 }
 
@@ -36,7 +44,20 @@ M.dap_python = {
             function()
                 require("dap-python").test_method()
             end,
+            "launch debugger",
         },
+    },
+}
+
+M.undotree = {
+    n = {
+        ["<leader>u"] = { "<cmd> UndotreeToggle <CR>", "launch undotree" },
+    },
+}
+
+M.fugitive = {
+    n = {
+        ["<leader>gg"] = { "<cmd> Git <CR>", "launch fugitive" },
     },
 }
 

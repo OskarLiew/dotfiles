@@ -17,6 +17,7 @@ M.treesitter = {
         "toml",
         "json",
         "yaml",
+        "bash",
     },
     indent = {
         enable = true,

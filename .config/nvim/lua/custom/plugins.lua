@@ -46,6 +46,24 @@ local plugins = {
         end,
     },
 
+    {
+        "nvim-treesitter/playground",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        cmd = "TSPlaygroundToggle",
+    },
+
+    {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+    },
+
+    {
+        "tpope/vim-fugitive",
+        cmd = "Git",
+    },
+
     -- Rust
     {
         "rust-lang/rust.vim",
