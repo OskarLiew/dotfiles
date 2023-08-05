@@ -14,6 +14,20 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 
+-- Setup clipboard tool, saved .5s on startup
+vim.g.clipboard = { -- WSL-specific config
+    name = "win32yank",
+    copy = {
+        ["+"] = "win32yank.exe -i --crlf",
+        ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+        ["+"] = "win32yank.exe -o -lf",
+        ["*"] = "win32yank.exe -o -lf",
+    },
+    cache_enabled = 0,
+}
+
 opt.smartindent = true
 
 opt.wrap = false
