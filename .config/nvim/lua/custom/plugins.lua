@@ -64,6 +64,27 @@ local plugins = {
         cmd = "Git",
     },
 
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        event = {
+            "BufEnter", -- TODO: Better load criterion
+        },
+        config = function()
+            require("refactoring").setup()
+        end,
+    },
+
+    {
+        "ThePrimeagen/harpoon",
+        event = {
+            "BufEnter",
+        },
+    },
+
     -- Rust
     {
         "rust-lang/rust.vim",
