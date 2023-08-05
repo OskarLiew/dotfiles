@@ -18,6 +18,8 @@ RPROMPT="%F{yellow}%D{%H:%M:%S}"  # Clock on right side
 ### Key bindings
 
 bindkey -v
+KEYTIMEOUT=1  # 10ms for key sequences: https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
+# Might make it harder to get of command mode
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -62,17 +64,14 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
-# Keys + modifier
-key[Control-Left]="${terminfo[kLFT5]}"
-key[Control-Right]="${terminfo[kRIT5]}"
-
-
 [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
 # Find character with `showkey -a`
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 ### History
 
