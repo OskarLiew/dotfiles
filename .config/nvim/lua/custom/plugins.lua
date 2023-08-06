@@ -85,6 +85,14 @@ local plugins = {
         },
     },
 
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+        enabled = function() -- Load if using tmux
+            return os.getenv("TMUX") ~= nil
+        end,
+    },
+
     -- Rust
     {
         "rust-lang/rust.vim",
