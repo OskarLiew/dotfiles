@@ -46,6 +46,53 @@ local plugins = {
         end,
     },
 
+    {
+        "nvim-treesitter/playground",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        cmd = "TSPlaygroundToggle",
+    },
+
+    {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+    },
+
+    {
+        "tpope/vim-fugitive",
+        cmd = "Git",
+    },
+
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        event = {
+            "BufEnter", -- TODO: Better load criterion
+        },
+        config = function()
+            require("refactoring").setup()
+        end,
+    },
+
+    {
+        "ThePrimeagen/harpoon",
+        event = {
+            "BufEnter",
+        },
+    },
+
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+        enabled = function() -- Load if using tmux
+            return os.getenv("TMUX") ~= nil
+        end,
+    },
+
     -- Rust
     {
         "rust-lang/rust.vim",
