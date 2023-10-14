@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 33 38 L 22 38 L 22 30 L 36 30 L 36 22 L 44 22 L 44 38 L 39 38 L 36 41 Z M 33 38 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 4 6 L 36 6 L 36 30 L 17 30 L 13 34 L 9 30 L 4 30 Z M 4 6 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 19 18 L 20 18 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 26 18 L 27 18 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 12 18 L 13 18 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+</svg>

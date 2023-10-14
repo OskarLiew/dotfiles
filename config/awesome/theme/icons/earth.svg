@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 24 44 C 35.045898 44 44 35.045898 44 24 C 44 12.954102 35.045898 4 24 4 C 12.954102 4 4 12.954102 4 24 C 4 35.045898 12.954102 44 24 44 Z M 24 44 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 4 24 L 44 24 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 24 44 C 28.417969 44 32 35.045898 32 24 C 32 12.954102 28.417969 4 24 4 C 19.582031 4 16 12.954102 16 24 C 16 35.045898 19.582031 44 24 44 Z M 24 44 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 9.857422 10.142578 C 13.477539 13.761719 18.477539 16 24 16 C 29.522461 16 34.522461 13.761719 38.142578 10.142578 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 38.142578 37.857422 C 34.522461 34.238281 29.522461 32 24 32 C 18.477539 32 13.477539 34.238281 9.857422 37.857422 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+</svg>

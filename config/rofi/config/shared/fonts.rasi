@@ -1,0 +1,15 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Fonts
+ *
+ **/
+
+* {
+    font: "Fira Code 10";
+    prompt-font:                 "Fira Code Regular 64";
+    textbox-font:                "Fira Code Light 14";
+    element-text-font:           "Fira Code Regular 82";
+}

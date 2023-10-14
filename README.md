@@ -1,25 +1,16 @@
 # Dotfiles
 
-Storage of configuration files with a bare git repository. Uses an alias for git `config` that you should use instead of using git directly.
+These are my configuration files for non-nix configs. Check out [configuration.nix](https://github.com/OskarLiew/configuration.nix) for my full NixOS configuration, which includes these dotfiles.
 
 ## Install dotfiles
 
-Set up the alias by adding the following command to the end of your `.bashrc` or equivalent.
+To install these dotfiles without nix, it is easiest to use symlinks
 
-```shell
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```bash
+ln -s .zshenv ~/.zshenv
+ln -s config/* ~/.config/
 ```
 
-Clone the repositoryy
+## Handling conflicts
 
-```shell
-git clone --bare https://github.com/OskarLiew/dotfiles $HOME/.dotfiles/
-```
-
-Optionally backup files
-
-```shell
-mkdir -p .config-backup && \
-config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-xargs -I{} mv {} .config-backup/{}
-```
+If the target of the symlink already exists, backup the files and try again.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <filter id="filter-remove-color" x="0%" y="0%" width="100%" height="100%">
+      <feColorMatrix color-interpolation-filters="sRGB" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+    </filter>
+    <mask id="mask-0">
+      <g filter="url(#filter-remove-color)">
+        <rect x="-19.2" y="-19.2" width="230.4" height="230.4" fill="rgb(0%, 0%, 0%)" fill-opacity="0.01"/>
+      </g>
+    </mask>
+    <mask id="mask-1">
+      <g filter="url(#filter-remove-color)">
+        <use xlink:href="#source-16"/>
+      </g>
+    </mask>
+    <clipPath id="clip-0">
+      <rect x="0" y="0" width="192" height="192"/>
+    </clipPath>
+    <clipPath id="clip-1">
+      <rect x="0" y="0" width="192" height="192"/>
+    </clipPath>
+    <clipPath id="clip-2">
+      <rect x="0" y="0" width="192" height="192"/>
+    </clipPath>
+    <g id="source-6" clip-path="url(#clip-0)">
+      <path fill-rule="nonzero" fill="#D3C6AA" fill-opacity="1" d="M 120 72 L 172 72 L 172 124 L 120 124 Z M 120 72 "/>
+    </g>
+    <g id="source-15" clip-path="url(#clip-1)">
+      <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 40.734375 20.286133 L 32.249023 28.771484 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+      <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 32.25 20.286133 L 40.735352 28.771484 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+    </g>
+    <g id="source-18" clip-path="url(#clip-2)">
+      <g mask="url(#mask-1)">
+        <use xlink:href="#source-15"/>
+      </g>
+    </g>
+    <image id="source-16" x="0" y="0" width="192" height="192" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAABmJLR0QA/wD/AP+gvaeTAAABHElEQVR4nO3TwQ2AMAwEwUD/PUMTRiHamQKse3jXAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA/7p2D+Bzz+4Bw0Z/9p48BqcRAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOMgL2aIBaOg++fIAAAAASUVORK5CYII="/>
+  </defs>
+  <g mask="url(#mask-0)">
+    <use xlink:href="#source-6"/>
+  </g>
+  <use xlink:href="#source-18"/>
+  <path fill="none" stroke-width="4" stroke-linecap="butt" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 24 6 L 24 42 C 17 42 11.798828 32.838867 11.798828 32.838867 L 6 32.838867 C 4.895508 32.838867 4 31.943359 4 30.838867 L 4 17.010742 C 4 15.90625 4.895508 15.010742 6 15.010742 L 11.798828 15.010742 C 11.798828 15.010742 17 6 24 6 Z M 24 6 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+</svg>

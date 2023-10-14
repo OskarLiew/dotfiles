@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="192" viewBox="0 0 192 192">
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 9 6 L 39 6 C 40.657227 6 42 7.342773 42 9 L 42 39 C 42 40.657227 40.657227 42 39 42 L 9 42 C 7.342773 42 6 40.657227 6 39 L 6 9 C 6 7.342773 7.342773 6 9 6 Z M 9 6 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 19 27 L 29 27 L 29 33 L 19 33 Z M 19 27 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 14 15 L 34 15 L 34 27 L 14 27 Z M 14 15 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 21 19 L 21 15 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+  <path fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter" stroke="#D3C6AA" stroke-opacity="1" stroke-miterlimit="4" d="M 27 19 L 27 15 " transform="matrix(4, 0, 0, 4, 0, 0)"/>
+</svg>
